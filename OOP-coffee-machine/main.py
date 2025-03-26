@@ -15,8 +15,7 @@ while on:
     elif order == "report":
         maker.report()
         money.report()
-    elif menu.find_drink(order):
+    else:
         item=menu.find_drink(order)
-        if maker.is_resource_sufficient(item):
-            if money.make_payment(item.cost):
-                maker.make_coffee(item)
+        if maker.is_resource_sufficient(item) and money.make_payment(item.cost):
+            maker.make_coffee(item)
