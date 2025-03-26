@@ -41,7 +41,7 @@ def prepare_drink(drink_ingredients):
 
 
 def check_transaction(drink_cost, got_money):
-    """Validates if the coins given are sufficient based on the cost of the drink and calculates the change in coins if present """
+    """Returns true if the coins given are sufficient based on the cost and calculates the change in coins if available"""
     if got_money[4] >= drink_cost:
         coin_types_name = { 0.25:"Quarters", 0.1:"Dimes", 0.05:"Nickels",0.01: "Pennies"}
         got_money_coin_types={0.25:got_money[0],0.1:got_money[1],0.05:got_money[2],0.01:got_money[3],"total":got_money[4]}
@@ -69,7 +69,7 @@ def check_transaction(drink_cost, got_money):
 
 
 def process_coins():
-    """Identifies the amount of coins inserted and calculates its total"""
+    """ Returns and Identifies the amount of coins inserted and calculates its total"""
     coins=[]
     questions=["How many quarters?: ", "How many dimes?: ", "How many nickles?: ", "How many pennies?: "]
     print("Please insert coins.")
@@ -92,7 +92,7 @@ def print_report():
     print(f'Money: ${resources["money"]}')
 
 def check_resources(ingredient_need):
-    """ Validates that coffee machine has enough resources to prepare a drink"""
+    """ Returns False if it Validates that coffee machine has enough resources to prepare a drink"""
     for ingredient in ingredient_need:
         if ingredient_need[ingredient] > resources[ingredient]:
             print(f"Sorry there is not enough {ingredient}.")
